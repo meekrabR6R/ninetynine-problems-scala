@@ -8,7 +8,7 @@ class ListFuncSpec extends FlatSpec with Matchers {
   }
 
   "Last" should "return None when Nil or empty Lists" in {
-    lf.last(Nil) == None
+    lf.last(Nil)    == None
     lf.last(List()) == None
   }
 
@@ -18,6 +18,16 @@ class ListFuncSpec extends FlatSpec with Matchers {
 
   "Penultimate" should "return None when Nil or empty Lists" in {
     lf.penultimate(List()) == None
-    lf.penultimate(Nil) == None
+    lf.penultimate(Nil)    == None
+  }
+
+  "Nth" should "find nth element of list" in {
+    lf.nth(2, List(1, 1, 2, 3, 5, 8)).get == 2
+  }
+
+  "Nth" should "return None when Nil or empty Lists, or when n is out of range" in {
+    lf.nth(2, List())        == None
+    lf.nth(2, Nil)           == None
+    lf.nth(5, List(1,2,3,4)) == None
   }
 }
