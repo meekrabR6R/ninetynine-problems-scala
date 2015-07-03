@@ -8,39 +8,40 @@ class ListFuncSpec extends FlatSpec with Matchers {
   }
 
   "Last" should "return None when Nil or empty Lists" in {
-    lf.last(Nil)    == None
-    lf.last(List()) == None
+    lf.last(Nil)    should be === None
+    lf.last(List()) should be === None
   }
 
   "Penultimate" should "find penultimate element of list" in {
-    lf.penultimate(List(1, 1, 2, 3, 5, 8)).get == 5
+    lf.penultimate(List(1, 1, 2, 3, 5, 8)).get should be === 5
   }
 
   "Penultimate" should "return None when Nil or empty Lists" in {
-    lf.penultimate(List()) == None
-    lf.penultimate(Nil)    == None
+    lf.penultimate(List()) should be === None
+    lf.penultimate(Nil)    should be === None
   }
 
   "Nth" should "find nth element of list" in {
-    lf.nth(2, List(1, 1, 2, 3, 5, 8)).get == 2
+    lf.nth(2, List(1, 1, 2, 3, 5, 8)).get should be === 2
   }
 
   "Nth" should "return None when Nil or empty Lists, or when n is out of range" in {
-    lf.nth(2, List())        == None
-    lf.nth(2, Nil)           == None
-    lf.nth(5, List(1,2,3,4)) == None
+    lf.nth(2, List())        should be === None
+    lf.nth(2, Nil)           should be === None
+    lf.nth(5, List(1,2,3,4)) should be === None
   }
 
   "Length" should "item count of list" in {
-    lf.length(List(1, 1, 2, 3, 5, 8)) == 6
+    lf.length(List(1, 1, 2, 3, 5, 8)) should be === 6
   }
 
   "IsPalindrome" should "return true when list is palindrome" in {
-    lf.isPalindrome(List(1, 2, 3, 2, 1)) == true
+    lf.isPalindrome(List(1, 2, 3, 2, 1)) should be === true
+    lf.isPalindrome(List(1,2,2,1))       should be === true
   }
 
   "IsPalindrome" should "return false when list is not palindrome" in {
-    lf.isPalindrome(List(1, 2, 3, 1, 1)) == false
+    lf.isPalindrome(List(1, 2, 3, 1, 1)) should be === false
   }
 
 }

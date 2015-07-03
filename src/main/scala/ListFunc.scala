@@ -22,7 +22,7 @@ object ListFunc {
    */
   def penultimate[A](xs: List[A]): Option[A] = xs match {
     case Nil       => None
-    case x::y::Nil => Some(y)
+    case x::y::Nil => Some(x)
     case x::xs     => penultimate(xs)
   }
 
@@ -55,5 +55,17 @@ object ListFunc {
     helper(0, xs)
   }
 
-  def isPalindrome(xs: List[Any]) = false
+  /**
+   * P06 (*) Find out whether a list is a palindrome.
+   * @param xs
+   * @return
+   */
+  def isPalindrome(xs: List[Any]) = {
+    val tup = xs.splitAt(xs.size / 2)
+    val x1  = tup._1
+    val x2  = tup._2
+
+    if (x1.size == x2.size) x1 == x2.reverse
+    else x1 == x2.tail.reverse
+  }
 }
