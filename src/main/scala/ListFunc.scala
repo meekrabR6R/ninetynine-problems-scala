@@ -36,9 +36,22 @@ object ListFunc {
   def nth[A](n: Int, xs: List[A]): Option[A] = {
     def helper(k: Int, ys: List[A]): Option[A] =
       if (k == n) Some(ys.head)
-      else helper(k+1, ys.tail)
+      else helper(k + 1, ys.tail)
 
     if (n > xs.size) None
     else helper(0, xs)
+  }
+
+  /**
+   * P04 (*) Find the number of elements of a list.
+   * @param xs
+   * @return
+   */
+  def length(xs: List[Any]): Int = {
+    def helper(acc: Int, ys: List[Any]): Int = ys match {
+      case Nil   => acc
+      case y::ys => helper(acc + 1, ys)
+    }
+    helper(0, xs)
   }
 }

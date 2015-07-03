@@ -30,4 +30,9 @@ class ListFuncSpec extends FlatSpec with Matchers {
     lf.nth(2, Nil)           == None
     lf.nth(5, List(1,2,3,4)) == None
   }
+
+  "Length" should "item count of list" in {
+    lf.length(List(1, 1, 2, 3, 5, 8)) == 6
+  }
+
 }
