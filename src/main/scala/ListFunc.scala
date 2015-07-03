@@ -54,4 +54,6 @@ object ListFunc {
     }
     helper(0, xs)
   }
+
+  def isPalindrome(xs: List[Any]) = false
 }

@@ -35,4 +35,12 @@ class ListFuncSpec extends FlatSpec with Matchers {
     lf.length(List(1, 1, 2, 3, 5, 8)) == 6
   }
 
+  "IsPalindrome" should "return true when list is palindrome" in {
+    lf.isPalindrome(List(1, 2, 3, 2, 1)) == true
+  }
+
+  "IsPalindrome" should "return false when list is not palindrome" in {
+    lf.isPalindrome(List(1, 2, 3, 1, 1)) == false
+  }
+
 }
