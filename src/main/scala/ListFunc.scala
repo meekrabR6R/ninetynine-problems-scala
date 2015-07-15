@@ -68,4 +68,14 @@ object ListFunc {
     if (x1.size == x2.size) x1 == x2.reverse
     else x1 == x2.tail.reverse
   }
+
+  /**
+   * P07 (**) Flatten a nested list structure.
+   * @param xs
+   * @return
+   */
+  def makeFlat(xs: List[Any]): List[Any] = xs flatMap {
+    case x: List[Any] => makeFlat(x)
+    case x: Any  => List(x)
+  }
 }

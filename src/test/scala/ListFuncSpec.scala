@@ -44,4 +44,8 @@ class ListFuncSpec extends FlatSpec with Matchers {
     lf.isPalindrome(List(1, 2, 3, 1, 1)) should be === false
   }
 
+  "Flatten" should "return a flat list of type List[Any] from a list of  List[Any]'s and Any's" in {
+    lf.makeFlat(List(List(1, 1), 2, List(3, List(5, 8)))) should be === List(1, 1, 2, 3, 5, 8)
+  }
+
 }
