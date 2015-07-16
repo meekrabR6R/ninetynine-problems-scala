@@ -78,4 +78,15 @@ object ListFunc {
     case x: List[Any] => makeFlat(x)
     case x: Any  => List(x)
   }
+
+  /**
+   * P09 (**) Pack consecutive duplicates of list elements into sublists.
+   * *If a list contains repeated elements they should be placed in separate sublists.
+   * @param xs
+   * @tparam A
+   * @return
+   */
+  def compress[A](xs: List[A]): List[A] =
+    xs.foldLeft(List(xs.head))((acc, x) => if (acc.head == x) acc else x::acc).reverse
+
 }
