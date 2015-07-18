@@ -48,8 +48,23 @@ class ListFuncSpec extends FlatSpec with Matchers {
     lf.makeFlat(List(List(1, 1), 2, List(3, List(5, 8)))) should be === List(1, 1, 2, 3, 5, 8)
   }
 
-  "" should "" in {
+  "Flatten" should "return an empty List for Nil or an empty List" in {
+    lf.makeFlat(Nil) should be === List()
+    lf.makeFlat(List()) should be === List()
+  }
+
+  "Compress" should "replace repeated consecutive elements with a single copy of that element" in {
     lf.compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) should be === List('a, 'b, 'c, 'a, 'd, 'e)
+  }
+
+  "Compress" should "should return an empty List for Nil or an empty List" in {
+    lf.compress(Nil) should be === List()
+    lf.compress(List()) should be === List()
+  }
+
+  "Pack" should "place repeated elements into separate sublists" in {
+    lf.pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) should be ===
+      List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))
   }
 
 }
