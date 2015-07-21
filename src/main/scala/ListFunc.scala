@@ -123,4 +123,16 @@ object ListFunc {
   def encode[A](xs: List[A]): List[(Int, A)] = pack(xs) map { x => (x.size, x.head) }
 
 
+  /**
+   * P11 (*) Modified run-length encoding.
+   * Modify the result of problem P10 in such a way that if an element
+   * has no duplicates it is simply copied into the result list.
+   * Only elements with duplicates are transferred as (N, E) terms.
+   * (modifying a copy of P10 to document both answers)
+   * @param xs
+   * @tparam A
+   * @return
+   */
+  def encodeMod[A](xs: List[A]): List[Any] = pack(xs) map { x => if (x.size > 1) (x.size, x.head) else x.head}
+
 }

@@ -76,4 +76,14 @@ class ListFuncSpec extends FlatSpec with Matchers {
     lf.encode(List()) should be === List()
   }
 
+  "EncodeMod" should "Modify the result of problem P10 in such a way that if an element has no duplicates it is simply copied " +
+                     "into the result list. Only elements with duplicates are transferred as (N, E) terms." in {
+    lf.encodeMod(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) should be === List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e))
+  }
+
+  "EncodeMod" should "should return an empty List for Nil or an empty List" in {
+    lf.encode(Nil) should be === List()
+    lf.encode(List()) should be === List()
+  }
+
 }
