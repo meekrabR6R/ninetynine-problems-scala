@@ -57,7 +57,7 @@ class ListFuncSpec extends FlatSpec with Matchers {
     lf.compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) should be === List('a, 'b, 'c, 'a, 'd, 'e)
   }
 
-  "Compress" should "should return an empty List for Nil or an empty List" in {
+  "Compress" should "return an empty List for Nil or an empty List" in {
     lf.compress(Nil) should be === List()
     lf.compress(List()) should be === List()
   }
@@ -71,19 +71,28 @@ class ListFuncSpec extends FlatSpec with Matchers {
     lf.encode(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) should be === List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
   }
 
-  "Encode" should "should return an empty List for Nil or an empty List" in {
+  "Encode" should "return an empty List for Nil or an empty List" in {
     lf.encode(Nil) should be === List()
     lf.encode(List()) should be === List()
   }
 
-  "EncodeMod" should "Modify the result of problem P10 in such a way that if an element has no duplicates it is simply copied " +
+  "EncodeMod" should "modify the result of problem P10 in such a way that if an element has no duplicates it is simply copied " +
                      "into the result list. Only elements with duplicates are transferred as (N, E) terms." in {
     lf.encodeMod(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) should be === List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e))
   }
 
-  "EncodeMod" should "should return an empty List for Nil or an empty List" in {
+  "EncodeMod" should "return an empty List for Nil or an empty List" in {
     lf.encode(Nil) should be === List()
     lf.encode(List()) should be === List()
+  }
+
+  "Decode" should ", given a run-length code list generated as specified in problem P10, construct its uncompressed version." in {
+    lf.decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))) should be === List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
+  }
+
+  "Decode" should "return an empty List for Nil or an empty List" in {
+    lf.decode(Nil) should be === List()
+    lf.decode(List()) should be === List()
   }
 
 }

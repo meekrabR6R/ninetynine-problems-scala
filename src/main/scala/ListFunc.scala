@@ -133,6 +133,17 @@ object ListFunc {
    * @tparam A
    * @return
    */
-  def encodeMod[A](xs: List[A]): List[Any] = pack(xs) map { x => if (x.size > 1) (x.size, x.head) else x.head}
+  def encodeMod[A](xs: List[A]): List[Any] = pack(xs) map { x => if (x.size > 1) (x.size, x.head) else x.head }
+
+  /**
+   * P12 (**) Decode a run-length encoded list.
+   * Given a run-length code list generated as specified in problem P10,
+   * construct its uncompressed version.
+   * @param xs
+   * @tparam A
+   * @return
+   */
+  def decode[A](xs: List[(Int, A)]): List[A] =
+    xs.foldRight(List[A]()) { (x, acc) => (List.fill(x._1)(x._2)++acc) }
 
 }
