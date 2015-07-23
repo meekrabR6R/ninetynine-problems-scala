@@ -95,4 +95,13 @@ class ListFuncSpec extends FlatSpec with Matchers {
     lf.decode(List()) should be === List()
   }
 
+  "EncodeDirect" should "encode consecutive duplicates of elements as tuples (N, E) where N is the number of duplicates of the element E." in {
+    lf.encodeDirect(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
+  }
+
+  "EncodeDirect" should "return an empty List for Nil or an empty List" in {
+    lf.encodeDirect(Nil) should be === List()
+    lf.encodeDirect(List()) should be === List()
+  }
+
 }

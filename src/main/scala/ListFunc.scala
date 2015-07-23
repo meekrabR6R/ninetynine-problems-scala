@@ -122,7 +122,6 @@ object ListFunc {
    */
   def encode[A](xs: List[A]): List[(Int, A)] = pack(xs) map { x => (x.size, x.head) }
 
-
   /**
    * P11 (*) Modified run-length encoding.
    * Modify the result of problem P10 in such a way that if an element
@@ -143,7 +142,19 @@ object ListFunc {
    * @tparam A
    * @return
    */
-  def decode[A](xs: List[(Int, A)]): List[A] =
-    xs.foldRight(List[A]()) { (x, acc) => (List.fill(x._1)(x._2)++acc) }
+  def decode[A](xs: List[(Int, A)]): List[A] = xs.foldRight(List[A]()) { (x, acc) => List.fill(x._1)(x._2)++acc }
 
+  /**
+   * P13 (**) Run-length encoding of a list (direct solution).
+   * Implement the so-called run-length encoding data compression method directly.
+   * I.e. don't use other methods you've written (like P09's pack); do all the work directly.
+   * @param xs
+   * @tparam A
+   * @return
+   */
+  def encodeDirect[A](xs: List[A]): List[(Int, A)] =
+    xs.foldRight(List[(Int, A)]()) { (x, acc) =>
+      if ((acc.length > 0) && (x == acc.head._2)) (acc.head._1 + 1, x)::acc.tail
+      else (1, x)::acc
+    }.reverse
 }
