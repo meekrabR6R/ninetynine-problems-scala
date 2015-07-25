@@ -104,4 +104,13 @@ class ListFuncSpec extends FlatSpec with Matchers {
     lf.encodeDirect(List()) should be === List()
   }
 
+  "Duplicate" should "duplicate elements in a list" in {
+    lf.duplicate(List('a, 'b, 'c, 'c, 'd)) should be === List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd)
+  }
+
+  "Duplicate" should "return an empty List for Nil or an empty List" in {
+    lf.duplicate(Nil) should be === List()
+    lf.duplicate(List()) should be === List()
+  }
+
 }

@@ -1,3 +1,6 @@
+/**
+ * Solutions to List problems
+ */
 object ListFunc {
 
   type ??? = Nothing
@@ -157,4 +160,12 @@ object ListFunc {
       if ((acc.length > 0) && (x == acc.head._2)) (acc.head._1 + 1, x)::acc.tail
       else (1, x)::acc
     }.reverse
+
+  /**
+   * P14 (*) Duplicate the elements of a list.
+   * @param xs
+   * @tparam A
+   * @return
+   */
+  def duplicate[A](xs: List[A]): List[A] = xs.flatMap { x => List.fill(2)(x) }
 }
