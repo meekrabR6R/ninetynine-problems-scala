@@ -168,4 +168,13 @@ object ListFunc {
    * @return
    */
   def duplicate[A](xs: List[A]): List[A] = xs.flatMap { x => List.fill(2)(x) }
+
+  /**
+   * P15 (**) Duplicate the elements of a list a given number of times.
+   * @param n
+   * @param xs
+   * @tparam A
+   * @return
+   */
+  def duplicateN[A](n: Int, xs: List[A]): List[A] = xs.flatMap { x => List.fill(n)(x) }
 }

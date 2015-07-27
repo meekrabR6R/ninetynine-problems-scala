@@ -113,4 +113,13 @@ class ListFuncSpec extends FlatSpec with Matchers {
     lf.duplicate(List()) should be === List()
   }
 
+  "DuplicateN" should "duplicate elements in a list n times" in {
+    lf.duplicateN(3, List('a, 'b, 'c, 'c, 'd)) should be === List('a, 'a, 'a, 'b, 'b, 'b, 'c, 'c, 'c, 'c, 'c, 'c, 'd, 'd, 'd)
+  }
+
+  "DuplicateN" should "return an empty List for Nil or an empty List" in {
+    lf.duplicateN(3, Nil) should be === List()
+    lf.duplicateN(3, List()) should be === List()
+  }
+
 }
