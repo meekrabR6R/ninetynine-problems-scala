@@ -177,4 +177,19 @@ object ListFunc {
    * @return
    */
   def duplicateN[A](n: Int, xs: List[A]): List[A] = xs.flatMap { x => List.fill(n)(x) }
+
+  /**
+   * P16 (**) Drop every Nth element from a list.
+   * @param n
+   * @param xs
+   * @tparam A
+   * @return
+   */
+  def drop[A](n: Int, xs: List[A]): List[A] = {
+    def helper(idx: Int, ys: List[A], acc: List[A]): List[A] = ys match {
+      case y::ys => if (idx == (n - 1)) helper(0, ys, acc) else helper(idx+1, ys, y::acc)
+      case _     => acc.reverse
+    }
+    helper(0, xs, List())
+  }
 }

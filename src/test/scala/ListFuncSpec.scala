@@ -122,4 +122,12 @@ class ListFuncSpec extends FlatSpec with Matchers {
     lf.duplicateN(3, List()) should be === List()
   }
 
+  "Drop" should "drop every Nth element from list" in {
+    lf.drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) should be === List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k)
+  }
+
+  "Drop" should "return an empty List for Nil or an empty List" in {
+    lf.drop(3, Nil) should be === List()
+    lf.drop(3, List()) should be === List()
+  }
 }
