@@ -130,4 +130,13 @@ class ListFuncSpec extends FlatSpec with Matchers {
     lf.drop(3, Nil) should be === List()
     lf.drop(3, List()) should be === List()
   }
+
+  "Split" should "split a list into two parts and return a Tuple containing both parts" in {
+    lf.split(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) should be === (List('a, 'b, 'c),List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
+  }
+
+  "Split" should "return an empty List for Nil or an empty List" in {
+    lf.split(3, Nil) should be === (List(), List())
+    lf.split(3, List()) should be === (List(), List())
+  }
 }

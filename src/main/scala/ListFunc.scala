@@ -192,4 +192,14 @@ object ListFunc {
     }
     helper(0, xs, List())
   }
+
+  /**
+   * P17 (*) Split a list into two parts.
+   * The length of the first part is given. Use a Tuple for your result.
+   * @param n
+   * @param xs
+   * @tparam A
+   * @return
+   */
+  def split[A](n: Int, xs: List[A]):(List[A], List[A]) = (xs.take(n), xs.takeRight(xs.size - n)) //xs.splitAt(n) //lol is this cheating?
 }
