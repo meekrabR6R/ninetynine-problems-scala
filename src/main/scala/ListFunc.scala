@@ -202,4 +202,17 @@ object ListFunc {
    * @return
    */
   def split[A](n: Int, xs: List[A]):(List[A], List[A]) = (xs.take(n), xs.takeRight(xs.size - n)) //xs.splitAt(n) //lol is this cheating?
+
+  /**
+   * P18 (**) Extract a slice from a list.
+   * Given two indices, I and K, the slice is the list containing the
+   * elements from and including the Ith element up to but not including
+   * the Kth element of the original list. Start counting the elements with 0.
+   * @param i
+   * @param k
+   * @param xs
+   * @tparam A
+   * @return
+   */
+  def slice[A](i: Int, k: Int, xs: List[A]): List[A] = xs.drop(i).take(k - i)
 }

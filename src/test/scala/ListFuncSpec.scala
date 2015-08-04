@@ -139,4 +139,13 @@ class ListFuncSpec extends FlatSpec with Matchers {
     lf.split(3, Nil) should be === (List(), List())
     lf.split(3, List()) should be === (List(), List())
   }
+
+  "Slice" should "return an empty List for Nil or an empty List" in {
+    lf.slice(3, 7, Nil) should be === List()
+    lf.slice(3, 7, List()) should be === List()
+  }
+
+  "Slice" should "return an empty list if i > k" in {
+    lf.slice(5, 3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) should be === List()
+  }
 }
