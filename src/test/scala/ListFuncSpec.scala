@@ -148,4 +148,14 @@ class ListFuncSpec extends FlatSpec with Matchers {
   "Slice" should "return an empty list if i > k" in {
     lf.slice(5, 3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) should be === List()
   }
+
+  "Rotate" should "split a list into two parts and return a Tuple containing both parts" in {
+    lf.rotate(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) should be === List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'a, 'b, 'c)
+    lf.rotate(-2, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) should be === List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
+  }
+
+  "Rotate" should "return an empty List for Nil or an empty List" in {
+    lf.rotate(3, Nil) should be === List()
+    lf.rotate(3, List()) should be === List()
+  }
 }

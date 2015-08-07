@@ -215,4 +215,14 @@ object ListFunc {
    * @return
    */
   def slice[A](i: Int, k: Int, xs: List[A]): List[A] = xs.drop(i).take(k - i)
+
+  /**
+   * P19 (**) Rotate a list N places to the left.
+   * @param n
+   * @param xs
+   * @tparam A
+   * @return
+   */
+  def rotate[A](n: Int, xs: List[A]): List[A] =
+    if (n > 0) xs.drop(n) ++ xs.take(n) else xs.takeRight(-n) ++ xs.dropRight(-n)
 }
