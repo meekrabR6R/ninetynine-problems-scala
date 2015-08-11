@@ -225,4 +225,15 @@ object ListFunc {
    */
   def rotate[A](n: Int, xs: List[A]): List[A] =
     if (n > 0) xs.drop(n) ++ xs.take(n) else xs.takeRight(-n) ++ xs.dropRight(-n)
+
+  /**
+   * P20 (*) Remove the Kth element from a list.
+   * Return the list and the removed element in a Tuple.
+   * Elements are numbered from 0.
+   * @param n
+   * @param xs
+   * @tparam A
+   * @return
+   */
+  def removeAt[A](n: Int, xs: List[A]): (List[A], A) = (xs.take(n) ++ xs.takeRight(n + 1), xs(n))
 }

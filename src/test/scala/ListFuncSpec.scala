@@ -158,4 +158,14 @@ class ListFuncSpec extends FlatSpec with Matchers {
     lf.rotate(3, Nil) should be === List()
     lf.rotate(3, List()) should be === List()
   }
+
+  "RemoveAt" should "remove the Kth element from a List" in {
+    lf.removeAt(1, List('a, 'b, 'c, 'd)) should be === (List('a, 'c, 'd), 'b)
+  }
+
+  "RemoveAt" should "throw and IndexOutOfBoundsException" in {
+    intercept[IndexOutOfBoundsException] { lf.removeAt(3, Nil) }
+    intercept[IndexOutOfBoundsException] { lf.removeAt(3, List()) }
+    intercept[IndexOutOfBoundsException] { lf.removeAt(3, List(0,1,2)) }
+  }
 }
