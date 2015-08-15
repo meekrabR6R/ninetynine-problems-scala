@@ -172,4 +172,10 @@ class ListFuncSpec extends FlatSpec with Matchers {
   "InsertAt" should "insert an element at a given position into a list." in {
     lf.insertAt('new, 1, List('a, 'b, 'c, 'd)) should be === List('a, 'new, 'b, 'c, 'd)
   }
+
+  "Range" should "create a list containing all integers within a given range." in {
+    lf.range(4, 9) should be === List(4, 5, 6, 7, 8, 9)
+    lf.range(5, -2) should be === List(5, 4, 3, 2, 1, 0, -1, -2)
+    lf.range(4,4) should be === List(4)
+  }
 }

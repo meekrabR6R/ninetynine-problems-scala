@@ -246,4 +246,20 @@ object ListFunc {
    * @return
    */
   def insertAt[A](el: A, n: Int, xs: List[A]):List[A] = xs.take(n) ++ (el::xs.takeRight(xs.size - n))
+
+  /**
+   * P22 (*) Create a list containing all integers within a given range.
+   * @param x
+   * @param y
+   * @return
+   */
+  def range(x: Int, y: Int): List[Int] = {
+    def helper(currCount: Int, currAcc: List[Int]): List[Int] = currCount match {
+      case n if n == y => (n::currAcc).reverse
+      case _           => if (y < x) helper(currCount - 1, currCount::currAcc)
+                          else helper(currCount + 1, currCount::currAcc)
+    }
+    helper(x, List())
+  }
 }
+
