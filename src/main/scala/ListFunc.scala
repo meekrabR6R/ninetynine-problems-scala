@@ -236,4 +236,14 @@ object ListFunc {
    * @return
    */
   def removeAt[A](n: Int, xs: List[A]): (List[A], A) = (xs.take(n) ++ xs.takeRight(n + 1), xs(n))
+
+  /**
+   * P21 (*) Insert an element at a given position into a list.
+   * @param el
+   * @param n
+   * @param xs
+   * @tparam A
+   * @return
+   */
+  def insertAt[A](el: A, n: Int, xs: List[A]):List[A] = xs.take(n) ++ (el::xs.takeRight(xs.size - n))
 }

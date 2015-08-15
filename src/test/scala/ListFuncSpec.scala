@@ -168,4 +168,8 @@ class ListFuncSpec extends FlatSpec with Matchers {
     intercept[IndexOutOfBoundsException] { lf.removeAt(3, List()) }
     intercept[IndexOutOfBoundsException] { lf.removeAt(3, List(0,1,2)) }
   }
+
+  "InsertAt" should "insert an element at a given position into a list." in {
+    lf.insertAt('new, 1, List('a, 'b, 'c, 'd)) should be === List('a, 'new, 'b, 'c, 'd)
+  }
 }
