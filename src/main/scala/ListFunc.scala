@@ -1,3 +1,5 @@
+import scala.util.Random
+
 /**
  * Solutions to List problems
  */
@@ -261,5 +263,22 @@ object ListFunc {
     }
     helper(x, List())
   }
+
+  /**
+   * P23 (**) Extract a given number of randomly selected elements from a list.
+   * @param n
+   * @param xs
+   * @tparam A
+   * @return
+   */
+  def randomSelect[A](n: Int, xs: List[A]):List[A] = Random.shuffle(xs).take(n)
+
+  /**
+   * P24 (*) Lotto: Draw N different random numbers from the set 1..M.
+   * @param n
+   * @param m
+   * @return
+   */
+  def lotto(n: Int, m: Int): List[Int] = Random.shuffle((0 until m).toList).take(n)
 }
 

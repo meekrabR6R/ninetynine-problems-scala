@@ -178,4 +178,14 @@ class ListFuncSpec extends FlatSpec with Matchers {
     lf.range(5, -2) should be === List(5, 4, 3, 2, 1, 0, -1, -2)
     lf.range(4,4) should be === List(4)
   }
+
+  "RandomSelect" should "extract a given number of randomly selected elements from a list." in {
+    lf.randomSelect(3, List('a, 'b, 'c, 'd, 'f, 'g, 'h)).size should be === 3
+    lf.randomSelect(0, List('a, 'b, 'c)) should be === List()
+    lf.randomSelect(4, List()) should be === List()
+  }
+
+  "Lotto" should "draw N different random numbers from the set 1..M." in {
+    lf.lotto(6, 49).size should be === 6
+  }
 }
