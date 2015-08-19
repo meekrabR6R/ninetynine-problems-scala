@@ -280,5 +280,13 @@ object ListFunc {
    * @return
    */
   def lotto(n: Int, m: Int): List[Int] = Random.shuffle((0 until m).toList).take(n)
+
+  /**
+   * P25 (*) Generate a random permutation of the elements of a list.
+   * @param xs
+   * @tparam A
+   * @return
+   */
+  def randomPermute[A](xs: List[A]): List[A] = Random.shuffle(xs)
 }
 

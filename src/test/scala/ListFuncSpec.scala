@@ -188,4 +188,8 @@ class ListFuncSpec extends FlatSpec with Matchers {
   "Lotto" should "draw N different random numbers from the set 1..M." in {
     lf.lotto(6, 49).size should be === 6
   }
+
+  "RandomPermute" should "generate a random permutation of the elements of a list." in {
+    lf.randomPermute(List('a, 'b, 'c, 'd, 'e, 'f)).toSet should be === Set('a, 'b, 'c, 'd, 'e, 'f)
+  }
 }
