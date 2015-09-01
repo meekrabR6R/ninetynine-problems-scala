@@ -5,6 +5,7 @@ import scala.util.Random
  */
 object ListFunc {
 
+  //test
   type ??? = Nothing
 
   /**
