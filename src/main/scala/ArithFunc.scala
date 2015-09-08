@@ -16,4 +16,16 @@ object ArithFunc {
 
     helper(n - 1)
   }
+
+  /**
+   * P32 (**) Determine the greatest common divisor of two positive integer numbers.
+   * Use Euclid's algorithm.
+   * @param n
+   * @param m
+   * @return
+   */
+  def gcd(n: Int, m: Int): Int =
+    if (n == 0) m
+    else if (m == 0) n
+    else gcd(m, n % m)
 }

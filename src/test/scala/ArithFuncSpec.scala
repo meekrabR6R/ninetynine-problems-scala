@@ -10,4 +10,8 @@ class ArithFuncSpec extends FlatSpec with Matchers {
     af.isPrime(7) should be === true
     af.isPrime(4) should be === false
   }
+
+  "GCD" should "determine the greatest common divisor of two positive integers" in {
+    af.gcd(36, 63) should be === 9
+  }
 }
