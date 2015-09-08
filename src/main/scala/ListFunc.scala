@@ -2,6 +2,7 @@ import scala.util.Random
 
 /**
  * Solutions to List problems
+ * TODO: Problems 27 and 28
  */
 object ListFunc {
 
