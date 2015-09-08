@@ -14,4 +14,8 @@ class ArithFuncSpec extends FlatSpec with Matchers {
   "GCD" should "determine the greatest common divisor of two positive integers" in {
     af.gcd(36, 63) should be === 9
   }
+
+  "IsCoprime" should "determine that two numbers are coprime if their GCD equals 1" in {
+    af.isCoprime(35, 64) should be === true
+  }
 }

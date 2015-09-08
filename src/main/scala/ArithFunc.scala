@@ -28,4 +28,13 @@ object ArithFunc {
     if (n == 0) m
     else if (m == 0) n
     else gcd(m, n % m)
+
+  /**
+   * P33 (*) Determine whether two positive integer numbers are coprime.
+   * Two numbers are coprime if their greatest common divisor equals 1.
+   * @param n
+   * @param m
+   * @return
+   */
+  def isCoprime(n: Int, m: Int): Boolean = gcd(n, m) == 1
 }
